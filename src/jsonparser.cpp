@@ -104,17 +104,17 @@ void jsonParser::norm(){
 	  assert(points.size() ==  normPoints.size());
 }
 void jsonParser::output(){    // full file name
-	int iend = fileName.find("."); //this finds the first occurrence of "."
+	string subString = substr(fileName.find("/json/") + 1); 
+	int iend = subString.find("."); //this finds the first occurrence of "."
 	//in string thus giving you the index of where it is in the string
 
 	// Now iend can be -1, if lets say the string had no "." at all in it i.e. no "." is found.
 	//So check and account for it.
-
-	string subString;
 	if (iend != -1)
 	{
-	    subString= fileName.substr(0 , iend); //this will give abc
+	    subString= subString.substr(0 , iend); //this will give abc
 	}
+    subString = "../INPUT/"+substring
 	std::ofstream ofs;
 	const char * outFile = subString.c_str();
 	try {
